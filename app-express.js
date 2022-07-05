@@ -11,26 +11,28 @@ app.use(express.static('public'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
-app.get('/',  (req, res)=> {
-    res.render('home',{
-        title: 'Road Trip Mexico',
-        name: 'Antonio Ramirez'
-    });
-})
-app.get('/generic', function (req, res) {
-    res.render('generic',{
-        title: 'Road Trip Mexico',
-        name: 'Antonio Ramirez'
-    });
-})
-app.get('/elements', function (req, res) {
-    res.render('elements',{
-        title: 'Road Trip Mexico',
-        name: 'Antonio Ramirez'
-    });
-})
-app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/public/404.html');
+// app.get('/',  (req, res)=> {
+//     res.render('home',{
+//         title: 'Road Trip Mexico',
+//         name: 'Antonio Ramirez'
+//     });
+// })
+// app.get('/generic',  (req, res)=> {
+//     res.render('generic',{
+//         title: 'Road Trip Mexico',
+//         name: 'Antonio Ramirez'
+//     });
+// })
+// app.get('/elements', (req, res)=> {
+//     res.render('elements',{
+//         title: 'Road Trip Mexico',
+//         name: 'Antonio Ramirez'
+//     });
+// })
+
+app.get('*',  (req, res)=> {
+    res.sendFile(__dirname + '/public/index.html');
+    // res.sendFile(__dirname + '/public/404.html');
 })
 
 app.listen(port, ()=>{
